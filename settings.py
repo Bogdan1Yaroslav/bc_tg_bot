@@ -6,7 +6,10 @@ DEBUG_MODE = True
 
 if DEBUG_MODE:
     import logging
+    import os
     from datetime import datetime
+
+    os.makedirs("logs/", exist_ok=True)
 
     log_created_at = datetime.now().strftime("%d.%m.%Y")
     log_format = '%(asctime)s %(filename)s: %(message)s'
