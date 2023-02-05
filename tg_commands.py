@@ -45,19 +45,15 @@ def make_a_request(message: Message) -> None:
     bot.register_next_step_handler(msg, get_results)
 
 
-def get_results(message: Message) -> Message or None:
+def get_results(message: Message) -> None:
     """
     Функция для получения разница между лидером и введенным ID обменника.
 
     :param message: Сообщение от пользователя
     :return: None
     """
-    ...
 
     result = best_change_request(message.text)
-    if not result:
-        return bot.send_message(message.chat.id, "Данного ID нет на сайте.\nПопробуйте снова.")
-
     bot.send_message(message.chat.id, result)
 
 
